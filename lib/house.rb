@@ -1,3 +1,5 @@
+require './lib/room'
+
 class House
   attr_reader :price, :address, :rooms
   def initialize(price, address)
@@ -34,5 +36,16 @@ class House
 
   def rooms_sorted_by_area
     (rooms.sort_by { |room| room.area }).reverse
+  end
+
+  def rooms_by_category
+    room_types = Hash.new(0)
+    @rooms.each do |room|
+      room_types[room.category] = []
+    end
+    @rooms.each do |room|
+      room_types[room.category] << room
+    end
+    room_types
   end
 end
