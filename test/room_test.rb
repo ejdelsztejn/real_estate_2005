@@ -30,7 +30,7 @@ class RoomTest < Minitest::Test
   end
 
   def test_it_can_become_painted
-    skip
+    # skip
     room = Room.new(:bedroom, 10, '13')
 
     assert_equal false, room.is_painted?
